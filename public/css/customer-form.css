@@ -1,0 +1,91 @@
+/* Ensure the form takes full width and is responsive */
+.customer-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Added box-sizing for padding consistency */
+}
+
+/* Heading for Create/Edit Customer Form */
+.customer-form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Success message */
+.alert-success {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Group for Inputs */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    transition: border 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styling */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .customer-form-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .form-group input, .form-group textarea {
+        font-size: 16px;
+        padding: 12px; /* Increased padding for better touch targets */
+    }
+
+    button[type="submit"] {
+        font-size: 18px;
+        padding: 14px 25px; /* Increased padding for the button */
+    }
+}

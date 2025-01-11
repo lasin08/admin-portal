@@ -1,11 +1,21 @@
-/* public/css/admin-portal.css */
-.admin-portal-body {
-    font-family: Arial, sans-serif;
+/* Ensure html and body take up the full height */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+
+/* Set .admin-portal-body to be a flex container */
+.admin-portal-body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
+    display: flex;
+    flex-direction: column; /* Stack header, nav, and main vertically */
+    min-height: 100vh; /* Make sure the body takes up the full height of the viewport */
 }
+
+/* Ensure header is sticky to the top */
 .admin-portal-header {
     background-color: #007bff;
     color: white;
@@ -14,9 +24,44 @@
     justify-content: space-between;
     align-items: center;
 }
-.admin-portal-header h1 {
-    margin: 0;
+
+/* Ensure nav does not shrink */
+.admin-portal-nav {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 54px;
+    flex-shrink: 0; /* Prevent nav from shrinking */
 }
+
+/* Navigation list styling */
+.admin-portal-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-portal-nav ul li {
+    margin-bottom: 10px;
+}
+
+.admin-portal-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.admin-portal-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main content area that takes up remaining space */
+.admin-portal-main {
+    padding: 20px;
+    flex-grow: 1; /* Make sure the main content takes up the available space */
+    overflow: auto; /* In case the content exceeds viewport height */
+}
+
+/* Styling for logout button */
 .admin-portal-logout-btn {
     background-color: #ff4d4d;
     color: white;
@@ -26,30 +71,70 @@
     cursor: pointer;
     font-size: 14px;
 }
+
 .admin-portal-logout-btn:hover {
     background-color: #cc0000;
 }
-.admin-portal-nav {
-    background-color: #007bff;
-    color: white;
-    padding: 15px 20px;
+
+/* Table styles */
+.admin-portal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
-.admin-portal-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+
+.admin-portal-table th, .admin-portal-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
 }
-.admin-portal-nav ul li {
-    margin-bottom: 10px;
+
+.admin-portal-table th {
+    background-color: #f4f4f9;
 }
-.admin-portal-nav ul li a {
-    color: white;
-    text-decoration: none;
+
+
+/* Button styling for "Create New Customer" */
+.admin-portal-btn {
     font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
-.admin-portal-nav ul li a:hover {
-    text-decoration: underline;
+
+/* Green button for "Create New Customer" */
+.btn-success {
+    background-color: #007bff;
+    border-color: #28a745;
+    color: white;
 }
-.admin-portal-main {
-    padding: 20px;
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-warning {
+    color: inherit; /* Keep the original color */
+}
+
+.btn-warning:hover, 
+.btn-warning:focus, 
+.btn-warning:active {
+    color: inherit; /* Prevent color change */
+    text-decoration: none; /* Prevent underline on hover */
+    background-color: #ffc107; /* Keep the yellow background */
+    border-color: #ffc107; /* Keep the yellow border */
+}
+
+/* Right align the "Create New Customer" button */
+.text-right {
+    text-align: right;
+}
+
+/* Align the "Edit" button to the right in the table */
+.admin-portal-table td.text-right {
+    text-align: right;
 }
