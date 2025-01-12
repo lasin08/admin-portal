@@ -7,12 +7,14 @@ use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 
 class CustomerInvoiceController extends Controller
 {
     /**
      * Display a listing of the customers/invoices.
-     *
+     * 
+     * @param string $type
      * @return View
      */
     public function index(string $type): View
@@ -34,6 +36,7 @@ class CustomerInvoiceController extends Controller
     /**
      * Show the form for creating a new customer/invoice.
      *
+     * @param string $type
      * @return View
      */
     public function create(string $type): View
@@ -77,7 +80,7 @@ class CustomerInvoiceController extends Controller
      * @param  int  $id
      * @return View
      */
-    public function edit(int $id): View
+    public function editCustomer(int $id): View
     {
         $customer = Customer::findOrFail($id);
         return view('admin.customer.create', compact('customer'));
@@ -104,7 +107,7 @@ class CustomerInvoiceController extends Controller
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function updateCustomer(Request $request, string $id): RedirectResponse
     {
         $customer = Customer::findOrFail((int) $id);
         $validatedData = $this->validateCustomerData($request);
@@ -157,11 +160,10 @@ class CustomerInvoiceController extends Controller
      */
     private function validateCustomerData(Request $request, $customerId = null)
     {
-        $uniqueEmailRule = $customerId ? 'unique:customers,email,' . $customerId : 'unique:customers,email';
         return $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'nullable|string|max:20',
-            'email' => 'nullable|email|max:255|' . $uniqueEmailRule,
+            'email' => 'nullable|email|max:255|',
             'address' => 'nullable|string',
         ]);
     }

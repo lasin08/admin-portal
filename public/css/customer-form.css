@@ -38,7 +38,7 @@
     color: #333;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, .form-group textarea, .form-group select {
     width: 100%;
     padding: 10px;
     font-size: 14px;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -10,11 +11,22 @@ use Exception;
 
 class AuthController extends Controller
 {
+    /**
+     * Display login form.
+     * 
+     * @return View
+     */
     public function showLoginForm(): View
     {
         return view('auth.login');
     }
 
+    /**
+     * Login request
+     * 
+     * @param Request $request
+     * @return mixed
+     */
     public function login(Request $request): mixed
     {
         try {
@@ -29,7 +41,12 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    /**
+     * Logout request
+     * 
+     * @return RedirectResponse
+     */
+    public function logout(): RedirectResponse
     {
         try {
             Auth::logout();

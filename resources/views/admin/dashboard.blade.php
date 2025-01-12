@@ -9,7 +9,7 @@
 </head>
 <body class="admin-portal-body">
     <header class="admin-portal-header">
-        <h2>Admin Portal</h2>
+        <h3>ADMIN PORTAL</h3>
         <form action="/logout" method="POST" style="margin: 0;">
             @csrf
             <button type="submit" class="admin-portal-logout-btn">Logout</button>
@@ -18,8 +18,18 @@
     <div class="admin-portal-container" style="display: flex; flex-direction: row; height: 100%;">
         <nav class="admin-portal-nav">
             <ul>
-                <li><a href="{{ route('index', ['type' => 'customer']) }}">Customer</a></li>
-                <li><a href="{{ route('index', ['type' => 'invoice']) }}">Invoice</a></li>
+               <li>
+            <a href="{{ route('index', ['type' => 'customer']) }}" 
+               class="{{ request()->routeIs('index') && request('type') === 'customer' ? 'selected' : '' }}">
+               Customer
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('index', ['type' => 'invoice']) }}" 
+               class="{{ request()->routeIs('index') && request('type') === 'invoice' ? 'selected' : '' }}">
+               Invoice
+            </a>
+        </li>
             </ul>
         </nav>
         <main class="admin-portal-main">
