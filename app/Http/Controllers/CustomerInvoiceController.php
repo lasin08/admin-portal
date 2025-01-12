@@ -13,7 +13,8 @@ class CustomerInvoiceController extends Controller
 {
     /**
      * Display a listing of the customers/invoices.
-     *
+     * 
+     * @param string $type
      * @return View
      */
     public function index(string $type): View
@@ -35,6 +36,7 @@ class CustomerInvoiceController extends Controller
     /**
      * Show the form for creating a new customer/invoice.
      *
+     * @param string $type
      * @return View
      */
     public function create(string $type): View
