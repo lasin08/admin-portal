@@ -41,3 +41,20 @@ Follow these steps to set up the Laravel Admin Portal:
 7. **Login Credentials**:
    - Username: `admin`
    - Password: `password123`
+
+
+Note:
+
+1. **Create the `.env` File**:  
+   Copy the `.env.example` file to create a new `.env` file in the root directory. The `.env` file contains environment-specific settings for your application, and it is not committed to version control due to security reasons.
+
+   To create the `.env` file, run the following command in your terminal:
+   cp .env.example .env
+
+2. Generate the Application Key:
+    After creating the .env file, you need to generate the application key, which is used for encryption purposes. This can be done by running the following command:
+    
+    php artisan key:generate
+
+
+
